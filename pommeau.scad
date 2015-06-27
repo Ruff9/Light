@@ -2,11 +2,11 @@ include <common.scad>;
 
 //general
 hauteur = 35;
-rayon_exterieur = 15;
-rayon_interieur = 12;
-rayon_recepteur = 17;
+rayon_exterieur = 13;
+rayon_interieur = 11;
+rayon_recepteur = 16;
 resolution_cylindre_ext = 60;
-rayon_trou = 8;
+rayon_trou = 10;
 
 //ring
 nombre_spheres = 100;
@@ -19,8 +19,8 @@ difference(){
  	cylinder(hauteur + 2 , rayon_interieur, rayon_interieur);
 }
 
-translate([0,0,hauteur - 2]) {
-	rondelle(2, rayon_recepteur, rayon_trou);
+translate([0,0,hauteur - 3]) {
+	rondelle(3, rayon_recepteur, rayon_trou);
 }
 
 translate([0,0,hauteur - rayon_anneau]) {
