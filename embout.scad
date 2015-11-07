@@ -46,7 +46,3 @@ translate([0,0,hauteur - rayon_spheres]) {
 translate([0,0,hauteur - (rayon_spheres*2)]) {
 	rondelle((rayon_spheres*2), rayon_recepteur, rayon_exterieur);
 }
-
-
-
-

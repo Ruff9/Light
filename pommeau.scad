@@ -13,11 +13,7 @@ nombre_spheres = 100;
 resolution_spheres = 50;
 rayon_anneau = 5;
 
-difference(){
- cylinder(hauteur, rayon_exterieur, rayon_exterieur, $fn=resolution_cylindre_ext);
- translate([0,0,-1])	
- 	cylinder(hauteur + 2 , rayon_interieur, rayon_interieur);
-}
+tube_cylindrique(hauteur, rayon_exterieur, rayon_interieur, resolution_cylindre_ext);
 
 translate([0,0,hauteur - 3]) {
 	rondelle(3, rayon_recepteur, rayon_trou);
