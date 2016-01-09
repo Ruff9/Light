@@ -14,9 +14,10 @@ hauteur_totale = hauteur_1 + hauteur_2 + hauteur_rondelle;
 rayon_exterieur = 22;
 rayon_interieur = 20;
 
-epaisseur = rayon_exterieur - rayon_interieur;
+epaisseur_tube = rayon_exterieur - rayon_interieur;
+epaisseur_empreinte = epaisseur_tube + 6;
 empreinte_douille_droite = 15;
-nb_attache_douille = 3;
+nb_baionette = 3;
 
 tube_cylindrique(hauteur_1, rayon_exterieur, rayon_interieur, 60);
 
@@ -26,9 +27,30 @@ translate([0,0,hauteur_1])
 difference() {
 	translate([0,0,hauteur_1 + 2])
 		tube_cylindrique(hauteur_2, rayon_exterieur, rayon_interieur, 60);
-	for ( i= [0:nb_attache_douille] )
-		rotate([0,0,i*(360/nb_attache_douille)]) {
-			translate([rayon_interieur-1,0,(hauteur_totale - empreinte_douille_droite +1) ])
-				cube([epaisseur+2, 2, empreinte_douille_droite]);
+	#empreintes();
+}
+
+module empreintes() {
+	for ( i= [0:nb_baionette] )
+		rotate([0,0,i*(360/nb_baionette)]) {
+			translate([0,0,(hauteur_totale - empreinte_douille_droite +1) ]) {
+				translate([14,0,0])
+					cube([epaisseur_empreinte +2 , 2, empreinte_douille_droite]);
+				rotate([0,0,30]){
+					translate([14,0,0])
+						cube([epaisseur_empreinte+2, 2, 4]);
+				}
+				// PROBLEME
+				difference(){
+					rondelle(hauteur_rondelle, rayon_exterieur+2, 14);
+					translate([-25,-25,-2])
+						cube([200,25,10]);
+					rotate([0,0,30]){
+						translate([-30,2,-2])
+							cube([60, 30, 10]);
+					}
+				}
+				// FIN DU PROBLEME
 			}
+		}
 }
