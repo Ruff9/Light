@@ -17,11 +17,7 @@ largeur_usb = 12;
 hauteur_usb = 7;
 rayon_led = 2;
 
-difference(){
- cylinder(hauteur, rayon_exterieur, rayon_exterieur, $fn=resolution_cylindre_ext);
- translate([0,0,-1])	
- 	cylinder(hauteur + 2 , rayon_interieur, rayon_interieur);
-}
+tube(hauteur, rayon_exterieur, rayon_interieur, resolution_cylindre_ext);
 
 translate([0,0,hauteur - 2]) {
 	difference() {
@@ -44,5 +40,5 @@ translate([0,0,hauteur - rayon_spheres]) {
 }
 
 translate([0,0,hauteur - (rayon_spheres*2)]) {
-	rondelle((rayon_spheres*2), rayon_recepteur, rayon_exterieur);
+	tube((rayon_spheres*2), rayon_recepteur, rayon_exterieur);
 }

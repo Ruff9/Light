@@ -6,18 +6,10 @@ module ring(nombre_spheres, rayon_spheres, rayon_exterieur){
 		}
 }
 
-module tube_cylindrique(hauteur, rayon_exterieur, rayon_interieur, resolution) {
+module tube(hauteur, rayon_exterieur, rayon_interieur, resolution=60) {
 	difference(){
 	  cylinder(hauteur, rayon_exterieur, rayon_exterieur, $fn=resolution);
 	  translate([0,0,-1])	
 	 	  cylinder(hauteur + 2 , rayon_interieur, rayon_interieur);
-	}
-}
-
-module rondelle(epaisseur, rayon_ext, rayon_int, resolution=60) {
-	difference(){
-		cylinder(epaisseur,rayon_ext,rayon_ext, $fn=resolution);
-		translate([0,0,-epaisseur])
-			cylinder(400,rayon_int,rayon_int);
 	}
 }

@@ -13,10 +13,10 @@ nombre_spheres = 100;
 resolution_spheres = 50;
 rayon_anneau = 5;
 
-tube_cylindrique(hauteur, rayon_exterieur, rayon_interieur, resolution_cylindre_ext);
+tube(hauteur, rayon_exterieur, rayon_interieur, resolution_cylindre_ext);
 
 translate([0,0,hauteur - 3]) {
-	rondelle(3, rayon_recepteur, rayon_trou);
+	tube(3, rayon_recepteur, rayon_trou);
 }
 
 translate([0,0,hauteur - rayon_anneau]) {
@@ -28,5 +28,5 @@ translate([0,0,hauteur - rayon_anneau]) {
 }
 
 translate([0,0,hauteur - (rayon_anneau*2)]) {
-	rondelle((rayon_anneau*2), rayon_recepteur, rayon_exterieur);
+	tube((rayon_anneau*2), rayon_recepteur, rayon_exterieur);
 }

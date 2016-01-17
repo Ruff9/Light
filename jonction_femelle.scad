@@ -19,16 +19,17 @@ epaisseur_empreinte = epaisseur_tube + 6;
 empreinte_douille_droite = 15;
 nb_baionette = 3;
 
-tube_cylindrique(hauteur_1, rayon_exterieur, rayon_interieur, 60);
+tube(hauteur_1, rayon_exterieur, rayon_interieur, 60);
 
 translate([0,0,hauteur_1])
-	rondelle(hauteur_rondelle, rayon_exterieur, 18);
+	tube(hauteur_rondelle, rayon_exterieur, 18);
 
 difference() {
 	translate([0,0,hauteur_1 + 2])
-		tube_cylindrique(hauteur_2, rayon_exterieur, rayon_interieur, 60);
-	#empreintes();
+		tube(hauteur_2, rayon_exterieur, rayon_interieur, 60);
+	empreintes();
 }
+	// empreintes();
 
 module empreintes() {
 	for ( i= [0:nb_baionette] )
@@ -42,7 +43,7 @@ module empreintes() {
 				}
 				// PROBLEME
 				difference(){
-					rondelle(hauteur_rondelle, rayon_exterieur+2, 14);
+					tube(hauteur_rondelle, rayon_exterieur+2, 14);
 					translate([-25,-25,-2])
 						cube([200,25,10]);
 					rotate([0,0,30]){
