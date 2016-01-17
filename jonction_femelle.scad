@@ -1,46 +1,53 @@
 include <common.scad>;
 include <variables_jonction.scad>;
 
-hauteur_totale = hauteur_jonction + hauteur_embout + hauteur_rondelle;
-
 epaisseur_tube = rayon_ext_embout - rayon_int_embout;
-epaisseur_empreinte = epaisseur_tube + 6;
 empreinte_douille_droite = 15;
 
-tube(hauteur_jonction, rayon_ext_embout, rayon_int_embout, 60);
+tube(hauteur_jonction, rayon_ext_embout, rayon_int_embout, resolution);
 
 translate([0,0,hauteur_jonction])
-	tube(hauteur_rondelle, rayon_ext_embout, 18);
+	tube(hauteur_rondelle, rayon_ext_embout, 16);
 
 difference() {
-	translate([0,0,hauteur_jonction + 2])
-		tube(hauteur_embout, rayon_ext_embout, rayon_int_embout, 60);
-	#empreintes();
+	translate([0,0,hauteur_jonction + hauteur_rondelle])
+		tube(hauteur_embout, rayon_ext_embout, rayon_int_embout, resolution);
+	translate([0,0,(hauteur_totale - empreinte_douille_droite +1) ])
+		for ( i= [0:nb_baionette] )
+			rotate([0,0,i*(360/nb_baionette)]) {
+				#empreinte();
+			}
 }
 
-// empreintes();
+// empreinte();
 
-module empreintes() {
-	for ( i= [0:nb_baionette] )
-		rotate([0,0,i*(360/nb_baionette)]) {
-			translate([0,0,(hauteur_totale - empreinte_douille_droite +1) ]) {
-				translate([14,0,0])
-					cube([epaisseur_empreinte +2 , 2, empreinte_douille_droite]);
-				rotate([0,0,30]){
-					translate([14,0,0])
-						cube([epaisseur_empreinte+2, 2, 4]);
-				}
-				difference(){
-					tube(hauteur_rondelle, rayon_ext_embout+2, 14);
-					translate([-25,-25,-2])
-						cube([200,25,10]);
-					rotate([0,0,30]){
-						translate([-30,2,-2])
-							cube([60, 30, 10]);
-					}
-				}
-			}
+module empreinte() {
+
+	rayon_int_empreinte = rayon_int_embout - 2;
+	rayon_ext_empreinte = rayon_ext_embout + 2;
+	epaisseur_empreinte = rayon_ext_empreinte - rayon_int_empreinte;
+
+	largeur_empreinte = 2;
+
+	angle_z = 30;
+
+	translate([rayon_int_empreinte,0,0])
+		cube([epaisseur_empreinte, largeur_empreinte, empreinte_douille_droite]);
+
+	rotate([0,0,angle_z]){
+		translate([rayon_int_empreinte,0,0])
+			cube([epaisseur_empreinte, largeur_empreinte, 4]);
+	}
+
+	difference(){
+		tube(largeur_empreinte, rayon_ext_empreinte, rayon_int_empreinte);
+		translate([-25,-25,-2])
+			cube([200,25,10]);
+		rotate([0,0,angle_z]){
+			translate([-30,2,-2])
+				cube([60, 30, 10]);
 		}
+	}
 }
 
 // intersection() {

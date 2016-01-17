@@ -8,7 +8,7 @@ rayon_recepteur = 16;
 resolution_cylindre_ext = 60;
 rayon_trou = 10;
 
-//ring
+//donut
 nombre_spheres = 100;
 resolution_spheres = 50;
 rayon_anneau = 5;
@@ -21,7 +21,7 @@ translate([0,0,hauteur - 3]) {
 
 translate([0,0,hauteur - rayon_anneau]) {
 	difference(){
-		ring(nombre_spheres, rayon_anneau, rayon_recepteur);
+		donut(nombre_spheres, rayon_anneau, rayon_recepteur);
 		translate([0,0,-(hauteur/2)])	
  			cylinder(hauteur + 2, rayon_recepteur, rayon_recepteur);
 	}
