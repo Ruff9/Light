@@ -1,35 +1,24 @@
 include <common.scad>;
-// include <variables_jonction.scad>;
+include <variables_jonction.scad>;
 
-// 1 : accueille la jonction male
-// 2 : accueille le corps du tonfa
+hauteur_totale = hauteur_jonction + hauteur_embout + hauteur_rondelle;
 
-// ! mesures à prendre 
-
-hauteur_1 = 25; //identique à hauteur_2 de la piece male?
-hauteur_2 = 30;
-hauteur_rondelle = 2;
-hauteur_totale = hauteur_1 + hauteur_2 + hauteur_rondelle;
-
-rayon_exterieur = 22;
-rayon_interieur = 20;
-
-epaisseur_tube = rayon_exterieur - rayon_interieur;
+epaisseur_tube = rayon_ext_embout - rayon_int_embout;
 epaisseur_empreinte = epaisseur_tube + 6;
 empreinte_douille_droite = 15;
-nb_baionette = 3;
 
-tube(hauteur_1, rayon_exterieur, rayon_interieur, 60);
+tube(hauteur_jonction, rayon_ext_embout, rayon_int_embout, 60);
 
-translate([0,0,hauteur_1])
-	tube(hauteur_rondelle, rayon_exterieur, 18);
+translate([0,0,hauteur_jonction])
+	tube(hauteur_rondelle, rayon_ext_embout, 18);
 
 difference() {
-	translate([0,0,hauteur_1 + 2])
-		tube(hauteur_2, rayon_exterieur, rayon_interieur, 60);
-	empreintes();
+	translate([0,0,hauteur_jonction + 2])
+		tube(hauteur_embout, rayon_ext_embout, rayon_int_embout, 60);
+	#empreintes();
 }
-	// empreintes();
+
+// empreintes();
 
 module empreintes() {
 	for ( i= [0:nb_baionette] )
@@ -41,9 +30,8 @@ module empreintes() {
 					translate([14,0,0])
 						cube([epaisseur_empreinte+2, 2, 4]);
 				}
-				// PROBLEME
 				difference(){
-					tube(hauteur_rondelle, rayon_exterieur+2, 14);
+					tube(hauteur_rondelle, rayon_ext_embout+2, 14);
 					translate([-25,-25,-2])
 						cube([200,25,10]);
 					rotate([0,0,30]){
@@ -51,7 +39,29 @@ module empreintes() {
 							cube([60, 30, 10]);
 					}
 				}
-				// FIN DU PROBLEME
 			}
 		}
 }
+
+// intersection() {
+	// difference(){
+	// 	tube(hauteur_rondelle, rayon_ext_embout+2, 14);
+
+	// 	translate([-25,-25,-2])
+	// 		cube([200,25,10]);
+
+	// 	rotate([0,0,30]){
+	// 		translate([-30,2,-2])
+	// 			cube([60, 30, 10]);
+	// 	}
+	// }
+
+	// translate([22,7,8])	
+	// 	rotate([0,-90,18]){
+	// 		difference(){
+	// 		  cylinder(30, 10, 10, $fn=60);
+	// 		  translate([0,0,-1])	
+	// 			  cylinder(30, 8, 8, $fn=60);
+	// 		}
+	// 	}
+// }
