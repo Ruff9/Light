@@ -1,9 +1,6 @@
 include <common.scad>;
 include <variables_jonction.scad>;
 
-epaisseur_tube = rayon_ext_embout - rayon_int_embout;
-empreinte_douille_droite = 15;
-
 tube(hauteur_jonction, rayon_ext_embout, rayon_int_embout, resolution);
 
 translate([0,0,hauteur_jonction])
@@ -12,7 +9,7 @@ translate([0,0,hauteur_jonction])
 difference() {
 	translate([0,0,hauteur_jonction + hauteur_rondelle])
 		tube(hauteur_embout, rayon_ext_embout, rayon_int_embout, resolution);
-	translate([0,0,(hauteur_totale - empreinte_douille_droite +1) ])
+	translate([0,0,(hauteur_totale - profondeur_douille +1) ])
 		for ( i= [0:nb_baionette] )
 			rotate([0,0,i*(360/nb_baionette)]) {
 				#empreinte();
@@ -26,13 +23,12 @@ module empreinte() {
 	rayon_int_empreinte = rayon_int_embout - 2;
 	rayon_ext_empreinte = rayon_ext_embout + 2;
 	epaisseur_empreinte = rayon_ext_empreinte - rayon_int_empreinte;
-
-	largeur_empreinte = 2;
+	largeur_empreinte 	= 2;
 
 	angle_z = 30;
 
 	translate([rayon_int_empreinte,0,0])
-		cube([epaisseur_empreinte, largeur_empreinte, empreinte_douille_droite]);
+		cube([epaisseur_empreinte, largeur_empreinte, profondeur_douille]);
 
 	rotate([0,0,angle_z]){
 		translate([rayon_int_empreinte,0,0])

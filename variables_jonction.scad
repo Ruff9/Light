@@ -10,6 +10,7 @@ hauteur_embout = 30;
 rayon_int_embout = 20;
 rayon_ext_embout = 22;
 
+profondeur_douille = 15;
 hauteur_jonction = 25;
 
 hauteur_totale = hauteur_jonction + hauteur_embout + hauteur_rondelle;
