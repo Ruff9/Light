@@ -4,10 +4,10 @@ include <variables_jonction.scad>;
 tube(hauteur_jonction, rayon_ext_embout, rayon_int_embout, resolution);
 
 translate([0,0,hauteur_jonction])
-	tube(hauteur_rondelle, rayon_ext_embout, 16);
+	tube(hauteur_butee, rayon_ext_embout, 16, resolution);
 
 difference() {
-	translate([0,0,hauteur_jonction + hauteur_rondelle])
+	translate([0,0,hauteur_jonction + hauteur_butee])
 		tube(hauteur_embout, rayon_ext_embout, rayon_int_embout, resolution);
 	translate([0,0,(hauteur_totale - profondeur_douille +1) ])
 		for ( i= [0:nb_baionette] )

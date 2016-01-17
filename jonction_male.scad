@@ -8,9 +8,9 @@ baionette_z = hauteur_totale - profondeur_douille + 5;
 tube(hauteur_embout, rayon_ext_embout, rayon_int_embout, resolution);
 
 translate([0,0,hauteur_embout])
-	tube(hauteur_rondelle, rayon_ext_embout, rayon_int_male);
+	tube(hauteur_butee, rayon_ext_embout, rayon_int_male, resolution);
 
-translate([0,0,hauteur_embout+2])
+translate([0,0,hauteur_embout + hauteur_butee])
 	tube(hauteur_jonction, rayon_ext_male, rayon_int_male, resolution);
 
 for ( i= [0:nb_baionette] )
