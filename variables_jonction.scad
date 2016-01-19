@@ -2,7 +2,7 @@
 // La jonction est la section de contact entre les deux pièces. 
 
 resolution = 80;
-nb_baionette = 2;
+nb_baionette = 3;
 
 hauteur_butee = 2;
 

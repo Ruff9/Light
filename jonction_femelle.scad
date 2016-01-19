@@ -25,46 +25,38 @@ module empreinte() {
 	epaisseur_empreinte = rayon_ext_empreinte - rayon_int_empreinte;
 	largeur_empreinte 	= 2;
 
-	angle_z = 30;
-
 	translate([rayon_int_empreinte,0,0])
 		cube([epaisseur_empreinte, largeur_empreinte, profondeur_douille]);
 
-	rotate([0,0,angle_z]){
-		translate([rayon_int_empreinte,0,0])
-			cube([epaisseur_empreinte, largeur_empreinte, 4]);
+	difference(){
+		rotate([0,90,26]){
+			translate([0,0,0])
+				cylinder(30, 1, 1, $fn=60);
+		}
+		translate([0,0,-10])
+			tube(30, rayon_int_empreinte, 0);
+		translate([0,0,-10])
+			tube(40, rayon_ext_empreinte +45, rayon_ext_empreinte);
 	}
 
-	difference(){
-		tube(largeur_empreinte, rayon_ext_empreinte, rayon_int_empreinte);
-		translate([-25,-25,-2])
-			cube([200,25,10]);
-		rotate([0,0,angle_z]){
-			translate([-30,2,-2])
-				cube([60, 30, 10]);
+	translate([0,0,-3])	{
+		rotate([0,0,14]){
+			difference(){
+				translate([40,0,5])	
+					rotate([0,-90,0]){
+						difference(){
+						  cylinder(40, 10, 1, $fn=60);
+						  translate([0,0,-1])	
+							  cylinder(40, 7, 1, $fn=60);
+						}
+					}
+				translate([0,0,-10])
+					tube(30, rayon_int_empreinte, 0);
+				translate([0,0,-10])
+					tube(40, rayon_ext_empreinte +45, rayon_ext_empreinte);
+				translate([-30, -30, 3])
+					cube([60, 60, 30]);
+			}
 		}
 	}
 }
-
-// intersection() {
-	// difference(){
-	// 	tube(hauteur_rondelle, rayon_ext_embout+2, 14);
-
-	// 	translate([-25,-25,-2])
-	// 		cube([200,25,10]);
-
-	// 	rotate([0,0,30]){
-	// 		translate([-30,2,-2])
-	// 			cube([60, 30, 10]);
-	// 	}
-	// }
-
-	// translate([22,7,8])	
-	// 	rotate([0,-90,18]){
-	// 		difference(){
-	// 		  cylinder(30, 10, 10, $fn=60);
-	// 		  translate([0,0,-1])	
-	// 			  cylinder(30, 8, 8, $fn=60);
-	// 		}
-	// 	}
-// }
