@@ -25,13 +25,15 @@ module empreinte() {
 	epaisseur_empreinte = rayon_ext_empreinte - rayon_int_empreinte;
 	largeur_empreinte 	= 2;
 
-	translate([rayon_int_empreinte,0,0])
-		cube([epaisseur_empreinte, largeur_empreinte, profondeur_douille]);
+	rotate([0,0,-0.5]){
+		translate([rayon_int_empreinte,0,0])
+			cube([epaisseur_empreinte, largeur_empreinte, profondeur_douille]);
+	}
 
 	difference(){
 		rotate([0,90,26]){
 			translate([0,0,0])
-				cylinder(30, 1, 1, $fn=60);
+				cylinder(30, largeur_empreinte/2, largeur_empreinte/2, $fn=60);
 		}
 		translate([0,0,-10])
 			tube(30, rayon_int_empreinte, 0);
