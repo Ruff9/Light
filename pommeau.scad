@@ -9,7 +9,7 @@ resolution_cylindre_ext = 60;
 rayon_trou = 10;
 
 //donut
-nombre_spheres = 10;
+nombre_spheres = 100;
 resolution_spheres = 50;
 rayon_anneau = 5;
 

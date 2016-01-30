@@ -23,7 +23,6 @@ module empreinte() {
 	rayon_int_empreinte = rayon_int_embout - 2;
 	rayon_ext_empreinte = rayon_ext_embout + 2;
 	epaisseur_empreinte = rayon_ext_empreinte - rayon_int_empreinte;
-	largeur_empreinte 	= 2;
 
 	rotate([0,0,-0.5]){
 		translate([rayon_int_empreinte,0,0])
@@ -32,7 +31,7 @@ module empreinte() {
 
 	difference(){
 		rotate([0,90,26]){
-			translate([0,0,0])
+			translate([0,1,0])
 				cylinder(30, largeur_empreinte/2, largeur_empreinte/2, $fn=60);
 		}
 		translate([0,0,-10])
@@ -44,12 +43,12 @@ module empreinte() {
 	translate([0,0,-3])	{
 		rotate([0,0,14]){
 			difference(){
-				translate([40,0,5])	
+				translate([40,1,5])	
 					rotate([0,-90,0]){
 						difference(){
-						  cylinder(40, 10, 1, $fn=60);
+						  cylinder(40, 12, 1, $fn=60);
 						  translate([0,0,-1])	
-							  cylinder(40, 7, 1, $fn=60);
+							  cylinder(40, 5.5, 1, $fn=60);
 						}
 					}
 				translate([0,0,-10])

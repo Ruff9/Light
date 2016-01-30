@@ -14,5 +14,8 @@ hauteur_jonction = 25;
 
 hauteur_totale = hauteur_jonction + hauteur_embout + hauteur_butee;
 
-profondeur_douille = 15;
+profondeur_douille = 12;
 baionette_z = hauteur_totale - profondeur_douille + 3;
+
+largeur_empreinte 	= 4;
+rayon_baionette = largeur_empreinte / 2;
