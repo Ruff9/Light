@@ -12,7 +12,7 @@ difference() {
 	translate([0,0,(hauteur_totale - profondeur_douille +1) ])
 		for ( i= [0:nb_baionette] )
 			rotate([0,0,i*(360/nb_baionette)]) {
-				#empreinte();
+				empreinte();
 			}
 }
 

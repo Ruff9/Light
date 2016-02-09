@@ -1,1 +1,0 @@
-Pour imprimer sur Ultimaker via Cura, exporter en STL.
