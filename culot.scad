@@ -1,21 +1,18 @@
 include <common.scad>;
 include <variables_jonction.scad>;
 
-rayon_ext_male = 19.5;
-rayon_int_male = 17.5;
-
 tube(hauteur_embout, rayon_ext_embout, rayon_int_embout, resolution);
 
 translate([0,0,hauteur_embout])
-	tube(hauteur_butee, rayon_ext_embout, rayon_int_male, resolution);
+	tube(hauteur_butee, rayon_ext_embout, rayon_int_culot, resolution);
 
 translate([0,0,hauteur_embout + hauteur_butee])
-	tube(hauteur_jonction-2, rayon_ext_male, rayon_int_male, resolution);
+	tube(hauteur_jonction-2, rayon_ext_culot, rayon_int_culot, resolution);
 
 for ( i= [0:nb_baionette] )
 	rotate([0,0,i*(360/nb_baionette)]) {
-		translate([0, rayon_ext_male + 5, baionette_z])
+		translate([0, rayon_ext_culot + 5, baionette_z])
 			rotate([90,0,0]) {
-				cylinder((rayon_ext_male - rayon_int_male +5), rayon_baionette, rayon_baionette, $fn=resolution);
+				cylinder((rayon_ext_culot - rayon_int_culot +5), rayon_baionette, rayon_baionette, $fn=resolution);
 			}
 	}

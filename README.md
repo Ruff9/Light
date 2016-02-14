@@ -8,9 +8,9 @@ Trois niveaux de fichiers sont présents ici : .scad, .stl et .gcode.
 
 Les .gcode sont prêts pour une impression dans une [Ultimaker](https://ultimaker.com).
 
-Pour éditer les .stl en .gcode, et paramétrer votre impression, vous pouvez utiliser [Cura](https://ultimaker.com/en/products/cura-software)
+Pour éditer les .stl en .gcode, et paramétrer votre impression: [Cura](https://ultimaker.com/en/products/cura-software).
 
-Pour travailler sur les .scad, modifier la conception et exporter des .stl, c'est [OpenScad](http://www.openscad.org/).
+Pour travailler sur les .scad, modifier la conception et exporter des .stl: [OpenScad](http://www.openscad.org/).
 
 ##Licence
 
