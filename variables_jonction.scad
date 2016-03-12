@@ -1,6 +1,6 @@
 
 resolution = 80;
-delta = 0.5;
+delta = 0.2;
 nb_baionette = 3;
 
 // L'embout accueille un tube pvc de 40mm de diamètre.
