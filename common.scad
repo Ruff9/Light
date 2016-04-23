@@ -6,10 +6,8 @@ module tube(hauteur, rayon_exterieur, rayon_interieur, resolution=60) {
 	}
 }
 
-module donut(nombre_spheres, rayon_spheres, rayon_exterieur){
-	for ( i= [0:nombre_spheres])
-		rotate([0,0,i*(360/nombre_spheres)]) {
-			translate([rayon_exterieur,0,0])
-			sphere(rayon_spheres, $fn=resolution_spheres);
-		}
+module donut(rayon_spheres, rayon_exterieur){
+	rotate_extrude(convexity = 10, $fn = resolution)
+		translate([rayon_exterieur,0,0])
+		circle(r = rayon_spheres, $fn = resolution);
 }

@@ -1,6 +1,6 @@
 $fn=100;
 include <common.scad>;
-include <variables_jonction.scad>;
+include <variables.scad>;
 
 diamled = 2.75;
 
