@@ -2,16 +2,33 @@ include <common.scad>;
 include <variables.scad>;
 
 epaisseur_reducteur = 4;
-decalage = (rayon_ext_tube_32+epaisseur_reducteur) - rayon_int_tube_40;
+epRed = epaisseur_reducteur;
 
-tube(20, rayon_ext_tube_32+epaisseur_reducteur, rayon_ext_tube_32);
+tube(30, ret32+epRed, ret32);
 
 translate([0,0,20])
-	difference() {
-		cylinder(10, (rayon_ext_tube_32+epaisseur_reducteur), (rayon_ext_tube_32+epaisseur_reducteur), $fn=60);
-		translate([0,decalage,-1])
-			cylinder(12, (rayon_int_tube_40-epaisseur_reducteur), (rayon_int_tube_40-epaisseur_reducteur), $fn=60);
+	rotate_extrude(convexity=10, $fn=resolution) {	
+		translate([ret32-ep40,0,0])
+			polygon([[0,0],[ep40,0],[ep40,ep40]]);
 	}
 
-translate([0,decalage,30])
-	tube(20, rayon_int_tube_40, rayon_int_tube_40-epaisseur_reducteur);
+translate([0,0,30])
+	difference() {
+
+		linear_extrude(height=30, convexity=10, scale=rit40/(ret32+epRed), $fn=resolution) {
+		 	circle(r = ret32+epRed);
+		}
+		translate([0,0,-1])
+			linear_extrude(height=32, convexity=10, scale=rit40/(ret32+epRed), $fn=resolution) {
+			 	circle(r = ret32);
+			}
+}
+
+translate([0,0,60])
+	tube(30, rit40, rit40-epRed+0.5);
+
+translate([0,0,65])
+	rotate_extrude(convexity=10, $fn=resolution) {	
+		translate([rit40,0,0])
+			polygon([[0,0],[ep40,ep40],[0,ep40]]);
+	}

@@ -11,9 +11,19 @@ nb_baionette = 3;
 
 rayon_ext_tube_32 = 16;
 rayon_int_tube_32 = 13;
+epaisseur_tube_32 = rayon_ext_tube_32 - rayon_int_tube_32;
 
 rayon_ext_tube_40 = 20;
 rayon_int_tube_40 = 17.5;
+epaisseur_tube_40 = rayon_ext_tube_40 - rayon_int_tube_40;
+
+ret32 = rayon_ext_tube_32;
+rit32 = rayon_int_tube_32;
+ep32  = epaisseur_tube_32;
+ret40 = rayon_ext_tube_40;
+rit40 = rayon_int_tube_40;
+ep40  = epaisseur_tube_40;
+ratio = 0;
 
 // L'embout accueille un tube pvc de 40mm de diamètre.
 hauteur_embout = 20;
