@@ -23,6 +23,7 @@ ep32  = epaisseur_tube_32;
 ret40 = rayon_ext_tube_40;
 rit40 = rayon_int_tube_40;
 ep40  = epaisseur_tube_40;
+
 ratio = 0;
 
 // L'embout accueille un tube pvc de 40mm de diamètre.
