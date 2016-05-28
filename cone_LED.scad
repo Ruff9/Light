@@ -1,6 +1,4 @@
-$fn=100;
 include <common.scad>;
-include <variables.scad>;
 
 rayon_led = 2.75;
 diam_fixation = 3;

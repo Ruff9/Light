@@ -1,5 +1,4 @@
 include <common.scad>;
-include <variables.scad>;
 
 //general
 hauteur = 35;

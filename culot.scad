@@ -1,5 +1,4 @@
 include <common.scad>;
-include <variables.scad>;
 
 tube(hauteur_embout, rayon_ext_embout, rayon_int_embout, resolution);
 
