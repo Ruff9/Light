@@ -1,20 +1,27 @@
 include <common.scad>;
+include <variables.scad>;
 
 //general
-hauteur = 35;
+hauteur = 30;
 rayon_exterieur = 13;
 rayon_interieur = 11;
 rayon_recepteur = 16;
-resolution_cylindre_ext = 60;
-rayon_trou = 10;
+resolution_cylindre_ext = resolution;
+rayon_trou = 10.5;
 
 //donut
 rayon_spheres_donut = 5;
 
-tube(hauteur, rayon_exterieur, rayon_interieur, resolution_cylindre_ext);
+tube(hauteur- (rayon_spheres_donut), rayon_exterieur, rayon_interieur, resolution_cylindre_ext);
 
 translate([0,0,hauteur - 3]) {
-	tube(3, rayon_recepteur, rayon_trou);
+	difference(){
+		tube(3, rayon_recepteur, rayon_trou);
+		translate([-2.5,rayon_trou-1.5,-1])
+			cube([5,3,5]);
+		translate([-2.5,-(rayon_trou+1.5),-1])
+			cube([5,3,5]);
+	}
 }
 
 translate([0,0,hauteur - rayon_spheres_donut]) {

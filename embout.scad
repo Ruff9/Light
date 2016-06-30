@@ -1,11 +1,12 @@
 include <common.scad>;
+include <variables.scad>;
 
 //general
-hauteur = 35;
-rayon_exterieur = 15;
-rayon_interieur = 12;
-rayon_recepteur = 17;
-resolution_cylindre_ext = 60;
+hauteur = 32;
+rayon_exterieur = 13;
+rayon_interieur = 11;
+rayon_recepteur = 16;
+resolution_cylindre_ext = resolution;
 
 //donut
 rayon_spheres_donut = 3;
@@ -15,7 +16,15 @@ largeur_usb = 7.3;
 hauteur_usb = 2.17;
 rayon_led = 1;
 
+//composant chargeur
+longueur_chargeur = 23;
+epaisseur_plaque = 1.2;
+
 tube(hauteur, rayon_exterieur, rayon_interieur, resolution_cylindre_ext);
+
+translate([epaisseur_plaque,-(rayon_interieur+0.5),(hauteur-longueur_chargeur-2.5)]) {
+	cube([1,(rayon_interieur+1)*2,longueur_chargeur]);
+}
 
 translate([0,0,hauteur - 2]) {
 	difference() {

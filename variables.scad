@@ -28,25 +28,27 @@ epaisseur_reducteur = 4;
 
 hauteur_embout = 20;
 rayon_int_embout = rayon_ext_tube_40 + delta;
-rayon_ext_embout = 22 + delta;
+rayon_ext_embout = 24 + delta;
 
 hauteur_butee = 2;
 rayon_int_butee = 16;
 
 // Jonction: section de contact entre les deux pièces.
+hauteur_grower = 4;
 
 rayon_ext_culot = rayon_ext_tube_40 - delta;
 rayon_int_culot = 18 - delta;
 hauteur_jonction = 30;
 
-hauteur_totale = 30 + 20 + 2;
+hauteur_totale = hauteur_jonction + hauteur_embout + hauteur_butee + hauteur_grower;
 
 profondeur_douille = 12;
 
-largeur_empreinte = 4;
+largeur_empreinte = 6;
 
-position_z_empreinte = hauteur_totale - profondeur_douille +1;
+position_z_empreinte = hauteur_totale - profondeur_douille + 1;
 
 nb_baionette = 3;
 rayon_baionette = largeur_empreinte / 2;
 baionette_z = hauteur_totale - (hauteur_jonction - profondeur_douille);
+
