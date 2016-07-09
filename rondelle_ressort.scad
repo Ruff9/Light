@@ -24,14 +24,29 @@ for ( i= [0:nombre_bras])
 translate([0,0,hauteur])
 	tube(1, rayon_int+largeur_rondelle, rayon_int);
 
+for ( i= [0:nombre_bras]) {
+	for ( n = [-15, 0, 8, 15 ]) {
+		rotate([0,0,i*angle_bras+n]) {
+			translate([0,rayon_int_embout - (largeur_rondelle/2),0])
+				support(hauteur); 
+		}
+	}
+}
+
+
 module bras(angle_bras) {
 	nb_atome = 20;
 	pas_rotation = (angle_bras/nb_atome) - 0.5;
 
-	for ( i= [0:nb_atome])
+	for ( i= [0:nb_atome]) {		
 		rotate([0,0,i*pas_rotation]) {
-			translate([-largeur_rondelle, rayon_int, i*(hauteur/nb_atome)])
+			translate([-largeur_rondelle, rayon_int, i*(hauteur/nb_atome)]) {		
 				cube([largeur_rondelle,largeur_rondelle,hauteur_atome]);
+			}
 		}
+	}
 }
 
+module support(h) {
+	#cylinder(h, 0.5, 0.5);
+}
