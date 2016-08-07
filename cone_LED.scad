@@ -1,4 +1,5 @@
 include <common.scad>;
+include <variables.scad>;
 
 rayon_led = 2.75;
 diam_fixation = 3;
@@ -18,21 +19,21 @@ difference(){
 	cylinder(r=10, h=1);
 
 	// trous pour leds
-	translate([ecart_entre_leds/2,0,-1]){
+	translate([0,0,-2]){
 		cylinder(r=rayon_led, h=4);
 	}
 
-	translate([-ecart_entre_leds/2,0,-1]){
-		cylinder(r=rayon_led, h=4);
-	}
+	// translate([-ecart_entre_leds/2,0,-1]){
+	// 	cylinder(r=rayon_led, h=4);
+	// }
 
-	// trous pour fixations
-	translate([1,-ecart_entre_fixations/2,-1]){
-		cylinder(r=diam_fixation/2, h=4);
-	}
+	// // trous pour fixations
+	// translate([1,-ecart_entre_fixations/2,-1]){
+	// 	cylinder(r=diam_fixation/2, h=4);
+	// }
 
-	translate([1,ecart_entre_fixations/2,-1]){
-		cylinder(r=diam_fixation/2, h=4);
-	}
+	// translate([1,ecart_entre_fixations/2,-1]){
+	// 	cylinder(r=diam_fixation/2, h=4);
+	// }
 
 }

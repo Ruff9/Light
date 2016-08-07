@@ -12,8 +12,8 @@ resolution_cylindre_ext = resolution;
 rayon_spheres_donut = 3;
 
 //embout
-largeur_usb = 7.3;
-hauteur_usb = 2.17;
+largeur_usb = 8;
+hauteur_usb = 3;
 rayon_led = 1;
 
 //composant chargeur
@@ -23,7 +23,12 @@ epaisseur_plaque = 1.2;
 tube(hauteur, rayon_exterieur, rayon_interieur, resolution_cylindre_ext);
 
 translate([epaisseur_plaque,-(rayon_interieur+0.5),(hauteur-longueur_chargeur-2.5)]) {
-	cube([1,(rayon_interieur+1)*2,longueur_chargeur]);
+	difference() {
+		cube([1,(rayon_interieur+1)*2,longueur_chargeur]);
+		translate([-0.5, rayon_interieur-3.5, longueur_chargeur/2-4]) {
+			cube([2,8,8]);
+		}
+	}
 }
 
 translate([0,0,hauteur - 2]) {

@@ -34,7 +34,7 @@ hauteur_butee = 2;
 rayon_int_butee = 16;
 
 // Jonction: section de contact entre les deux pièces.
-hauteur_grower = 4;
+hauteur_grower = 8;
 
 rayon_ext_culot = rayon_ext_tube_40 - delta;
 rayon_int_culot = 18 - delta;
