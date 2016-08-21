@@ -16,16 +16,20 @@ rayon_int = rayon_int_embout - largeur_rondelle - 3*delta;
 
 tube(2, rayon_int+largeur_rondelle, rayon_int);
 
-for ( i= [0:nombre_bras])
-	rotate([0,0,i*angle_bras]) {
-		bras(angle_bras);
-	}
+difference(){
+	for ( i= [0:nombre_bras])
+		rotate([0,0,i*angle_bras]) {
+			bras(angle_bras);
+		}
+	tube(hauteur+2, rayon_int+largeur_rondelle+2, rayon_int+largeur_rondelle);	
+}
+
 
 translate([0,0,hauteur-1])
 	tube(2, rayon_int+largeur_rondelle, rayon_int);
 
 for ( i= [0:nombre_bras]) {
-	for ( n = [-8, 4, 15, 25 ]) {
+	for ( n = [-4, 4, 15, 25, 40 ]) {
 		rotate([0,0,i*angle_bras+n]) {
 			translate([0,rayon_int_embout - (largeur_rondelle/2),0])
 				support(hauteur); 
