@@ -2,7 +2,7 @@ include <common.scad>;
 include <variables.scad>;
 
 //general
-hauteur = 30;
+hauteur = 35;
 rayon_exterieur = 13;
 rayon_interieur = 11;
 rayon_recepteur = 16;
