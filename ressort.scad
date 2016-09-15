@@ -1,20 +1,14 @@
 include <common.scad>;
 include <variables.scad>;
 
-// variables qui influent sur la raideur: 
-// nb_atome, pas_rotation
-
 nombre_bras = 5;
 angle_bras = 360/nombre_bras;
 
 hauteur = hauteur_grower;
-
 hauteur_atome = 1;
 
 largeur_rondelle = rayon_int_embout - rayon_int_butee;
 rayon_int = rayon_int_embout - largeur_rondelle - 3*delta;
-
-// tube(2, rayon_int+largeur_rondelle, rayon_int);
 
 difference(){
 	for ( i= [0:nombre_bras])
@@ -27,27 +21,8 @@ difference(){
 translate([0,0,hauteur-1])
 	tube(2, rayon_int+largeur_rondelle, rayon_int);
 
-// systeme de support custom
-// for ( i= [0:nombre_bras]) {
-// 	for ( n = [7, 15, 25]) {
-// 		rotate([0,0,i*angle_bras+n]) {
-// 			translate([0,rayon_int_embout - (largeur_rondelle/2),0])
-// 				support(hauteur); 
-// 		}
-// 	}
-// 	for ( n = [38]) {
-// 		rotate([0,0,i*angle_bras+n]) {
-// 			translate([0,rayon_int_embout - (largeur_rondelle/2),hauteur/2])
-// 				support(hauteur/2); 
-// 		}
-// 	}
-// 	for ( n = [50]) {
-// 		rotate([0,0,i*angle_bras+n]) {
-// 			translate([0,rayon_int_embout - (largeur_rondelle/2),hauteur*(2/3)])
-// 				support(hauteur/3); 
-// 		}
-// 	}
-// }
+// variables qui influent sur la raideur: 
+// nb_atome, pas_rotation
 
 module bras(angle_bras) {
 	nb_atome = 40;
@@ -60,8 +35,4 @@ module bras(angle_bras) {
 			}
 		}
 	}
-}
-
-module support(h) {
-	cylinder(h, 0.5, 0.5);
 }
