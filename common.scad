@@ -1,7 +1,7 @@
 module tube(hauteur, rayon_exterieur, rayon_interieur, resolution=resolution) {
 	difference(){
 	  cylinder(hauteur, rayon_exterieur, rayon_exterieur, $fn=resolution);
-	  translate([0,0,-1])	
+	  translate([0,0,-1])
 	 	  cylinder(hauteur + 2 , rayon_interieur, rayon_interieur, $fn=resolution);
 	}
 }
