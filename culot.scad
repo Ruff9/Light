@@ -1,8 +1,8 @@
 include <common.scad>;
 include <variables.scad>;
 
-baionette_z = hauteur_totale - hauteur_ressort - profondeur_douille - 4;
-rayon_ext_spot = 25;
+baionette_z = hauteur_totale - hauteur_ressort - profondeur_douille;
+rayon_ext_spot = 26;
 rayon_rebord_spot = 23;
 rayon_ext_spot = 25;
 hauteur_recepteur = hauteur_embout-2;
