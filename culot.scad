@@ -3,16 +3,15 @@ include <variables.scad>;
 
 baionette_z = hauteur_totale - hauteur_ressort - profondeur_douille;
 rayon_ext_spot = 26;
-rayon_rebord_spot = 23;
-rayon_ext_spot = 25;
+rayon_rebord_spot = 24;
 hauteur_recepteur = hauteur_embout-2;
 
 tube(hauteur_recepteur, rayon_ext_spot+4, rayon_ext_spot, resolution);
 
 translate([0,0,hauteur_recepteur])
-  tube(6, rayon_ext_spot+4, rayon_rebord_spot, resolution);
+  tube(8, rayon_ext_spot+4, rayon_rebord_spot, resolution);
 
-translate([0,0,hauteur_recepteur+6])
+translate([0,0,hauteur_recepteur+8])
   tube(hauteur_butee, rayon_ext_embout, rayon_int_culot, resolution);
 
 translate([0,0,hauteur_recepteur+hauteur_butee+6])
