@@ -1,7 +1,7 @@
 include <common.scad>;
 include <variables.scad>;
 
-position_z_empreinte = hauteur_totale - profondeur_douille + 1;
+position_z_empreinte = hauteur_totale - profondeur_douille-3;
 
 tube(hauteur_embout, rayon_ext_embout, rayon_int_embout, resolution);
 
@@ -10,7 +10,7 @@ translate([0,0,hauteur_embout])
 
 difference() {
   translate([0,0,hauteur_embout + hauteur_butee])
-    tube(hauteur_jonction+hauteur_ressort, rayon_ext_embout, rayon_int_embout, resolution);
+    tube(hauteur_jonction+hauteur_ressort-3, rayon_ext_embout, rayon_int_embout, resolution);
 
   translate([0,0,position_z_empreinte])
     for ( i= [0:nb_baionette] )
