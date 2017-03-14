@@ -1,3 +1,6 @@
+// Ce fichier contient les deux pieces culot et douille,
+// et sert à vérifier l'emboitement.
+
 include <common.scad>;
 include <variables.scad>;
 

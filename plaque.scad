@@ -1,7 +1,6 @@
 include <common.scad>;
 include <variables.scad>;
 
-// epaisseur =
 rayon_ext = rayon_ext_embout - 1;
 decalageY = rayon_ext + 10;
 epaisseur = rayon_ext - rayon_int_embout;
