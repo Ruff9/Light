@@ -1,7 +1,7 @@
 include <common.scad>;
 include <variables.scad>;
 
-baionette_z = hauteur_totale - hauteur_ressort - profondeur_douille;
+baionette_z = hauteur_totale - hauteur_ressort - profondeur_douille + 1;
 rayon_ext_spot = 26;
 rayon_rebord_spot = 24;
 hauteur_recepteur = hauteur_embout-2;
@@ -15,7 +15,7 @@ translate([0,0,hauteur_recepteur+8])
   tube(hauteur_butee, rayon_ext_embout, rayon_int_culot, resolution);
 
 translate([0,0,hauteur_recepteur+hauteur_butee+6])
-  tube(hauteur_jonction-2, rayon_ext_culot, rayon_int_culot, resolution);
+  tube(hauteur_jonction, rayon_ext_culot, rayon_int_culot, resolution);
 
 for ( i= [0:nb_baionette] )
   rotate([0,0,i*(360/nb_baionette)]) {
