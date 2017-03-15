@@ -1,8 +1,8 @@
-#Light
+# Light
 
-Projet réalisé avec OpenSCAD au FabLab du [Carrefour Numérique](http://carrefour-numerique.cite-sciences.fr/fablab/wiki/doku.php?_ga=1.200240622.1982442383.1430227391), à la Villette.
+Projet réalisé avec OpenSCAD au FabLab du [Carrefour Numérique](http://carrefour-numerique.cite-sciences.fr/fablab/wiki/doku.php?_ga=1.200240622.1982442383.1430227391), de la Cité des sciences et de l'industrie, à la Villette, Paris.
 
-##Contenu
+## Contenu
 
 Trois niveaux de fichiers sont présents ici : .scad, .stl et .gcode.
 
@@ -12,6 +12,6 @@ Pour éditer les .stl en .gcode, et paramétrer votre impression: [Cura](https:/
 
 Pour travailler sur les .scad, modifier la conception et exporter des .stl: [OpenScad](http://www.openscad.org/).
 
-##Licence
+## Licence
 
 Ces fichiers sont distribués sous la licence [Creative Commons Attribution-Partage 3.0](https://creativecommons.org/licenses/by-sa/3.0/fr/).
