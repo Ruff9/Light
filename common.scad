@@ -11,3 +11,10 @@ module donut(rayon_spheres, rayon_exterieur){
 		translate([rayon_exterieur,0,0])
 		circle(r = rayon_spheres, $fn = resolution);
 }
+
+module languette() {
+  translate([5,0,0])
+    cylinder(4,4,4, $fn=resolution);
+  translate([-2,-4,0])
+    cube([6,8,4]);
+}

@@ -20,10 +20,6 @@ ret40 = rayon_ext_tube_40;
 rit40 = rayon_int_tube_40;
 ep40  = epaisseur_tube_40;
 
-// Reducteur
-
-epaisseur_reducteur = 4;
-
 // L'embout accueille un tube pvc de 40mm de diamètre.
 
 hauteur_embout = 20;
@@ -40,6 +36,9 @@ hauteur_ressort = 7.5;
 
 rayon_ext_culot = rayon_ext_tube_40 - delta;
 rayon_int_culot = 18 - delta;
+
+rayon_ext_spot = 26;
+
 hauteur_jonction = 30;
 
 hauteur_totale = hauteur_jonction + hauteur_embout + hauteur_butee + hauteur_ressort;

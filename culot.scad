@@ -2,7 +2,7 @@ include <common.scad>;
 include <variables.scad>;
 
 baionette_z = hauteur_totale - hauteur_ressort - profondeur_douille + 3;
-rayon_ext_spot = 26;
+
 rayon_rebord_spot = 24;
 hauteur_recepteur = hauteur_embout - 2;
 
