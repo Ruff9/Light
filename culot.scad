@@ -17,7 +17,7 @@ difference() {
       tube(hauteur_butee, rayon_ext_embout, rayon_int_culot, resolution);
 
     translate([0,0,hauteur_recepteur+hauteur_butee+8])
-      tube(hauteur_jonction, rayon_ext_culot, rayon_int_culot, resolution);
+      tube(hauteur_jonction-1, rayon_ext_culot, rayon_int_culot, resolution);
   }
   translate([0,0,hauteur_recepteur+5])
     cylinder(hauteur_recepteur+8, rayon_ext_embout-1, 0);
