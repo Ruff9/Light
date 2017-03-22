@@ -1,7 +1,7 @@
 include <common.scad>;
 include <variables.scad>;
 
-h_cale = 18;
+h_cale = 6;
 
 intersection() {
   tube(h_cale, rit40-delta, rit40-2, resolution);
