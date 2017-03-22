@@ -6,7 +6,7 @@ h_gaine = 70;
 r_gaine = rit40;
 r_rigole = 5;
 
-r_piles = 11 + delta;
+r_piles = 11 + delta*2;
 h_support = 32;
 
 difference(){
@@ -33,12 +33,18 @@ module gaine() {
 }
 
 module rigole() {
-  translate([0,r_gaine-1,0])
-    difference(){
-      tube(h_gaine, r_rigole+epaisseur, r_rigole, resolution);
-      translate([-(r_rigole+2),0,-1])
-        cube([(r_rigole+epaisseur)*2,r_rigole+epaisseur,h_gaine+2]);
-    }
+  l_rigole = 12;
+  h_rigole = r_gaine-r_piles;
+
+  intersection(){
+    tube(h_gaine, r_piles+epaisseur, r_piles);
+    translate([-l_rigole/2,h_rigole+epaisseur,-1])
+      cube([l_rigole,h_rigole,h_gaine+2]);
+  }
+  translate([(l_rigole/2)-epaisseur,r_piles,0])
+    cube([epaisseur,h_rigole,h_gaine]);
+  translate([-(l_rigole/2),r_piles,0])
+    cube([epaisseur,h_rigole,h_gaine]);
 }
 
 module fond_contact(largeur, epaisseur=2) {
