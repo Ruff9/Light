@@ -6,21 +6,44 @@ baionette_z = hauteur_totale - hauteur_ressort - profondeur_douille + 3;
 rayon_rebord_spot = 24;
 hauteur_recepteur = hauteur_embout - 2;
 
-tube(hauteur_recepteur, rayon_ext_spot+4, rayon_ext_spot, resolution);
-
-translate([0,0,hauteur_recepteur])
-  tube(8, rayon_ext_spot+4, rayon_rebord_spot, resolution);
-
 difference() {
   union() {
-    translate([0,0,hauteur_recepteur+8])
-      tube(hauteur_butee, rayon_ext_spot+4, rayon_int_culot, resolution);
+    tube(hauteur_recepteur, rayon_ext_spot+4, rayon_ext_spot, resolution);
 
-    translate([0,0,hauteur_recepteur+hauteur_butee+8])
-      tube(hauteur_jonction-1, rayon_ext_culot, rayon_int_culot, resolution);
+    translate([0,0,hauteur_recepteur])
+      tube(8, rayon_ext_spot+4, rayon_rebord_spot, resolution);
+
+    difference() {
+      union() {
+        translate([0,0,hauteur_recepteur+6])
+          tube(hauteur_butee+2, rayon_ext_spot+4, rayon_int_culot, resolution);
+
+        translate([0,0,hauteur_recepteur+hauteur_butee+8])
+          tube(hauteur_jonction-1, rayon_ext_culot, rayon_int_culot, resolution);
+      }
+      translate([0,0,hauteur_recepteur+5])
+        cylinder(hauteur_recepteur+8, rayon_ext_embout-1, 0);
+    }
   }
-  translate([0,0,hauteur_recepteur+5])
-    cylinder(hauteur_recepteur+8, rayon_ext_embout-1, 0);
+
+  for ( i= [0:nb_baionette] )
+    rotate([0,0,i*(360/nb_baionette)+180/nb_baionette]) {
+      translate([0, rayon_ext_culot+15, -1]) {
+        cylinder(hauteur_recepteur*2,15,15);
+
+        translate([11,-10, 0]) {
+          rotate([0,0,20]) {
+            cube([5,5,hauteur_recepteur*2]);
+          }
+        }
+
+        translate([-16,-8, 0]) {
+          rotate([0,0,-20]) {
+            cube([5,5,hauteur_recepteur*2]);
+          }
+        }
+      }
+    }
 }
 
 for ( i= [0:nb_baionette] )
