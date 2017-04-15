@@ -35,7 +35,7 @@ rayon_int_butee = 16;
 hauteur_ressort = 7.5;
 
 rayon_ext_culot = rayon_ext_tube_40 - delta;
-rayon_int_culot = 16 - delta;
+rayon_int_culot = 17 - delta;
 
 rayon_ext_spot = 26;
 
