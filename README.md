@@ -4,11 +4,7 @@ Projet réalisé avec OpenSCAD au FabLab du [Carrefour Numérique](http://carref
 
 ## Contenu
 
-Trois niveaux de fichiers sont présents ici : .scad, .stl et .gcode.
-
-Les .gcode sont prêts pour une impression dans une [Ultimaker 2+](https://ultimaker.com). Ces fichiers sont optimisés pour les imprimantes du carrefour numérique, il est plus prudent de refaire les réglages pour les adapter à la machine que vous utiliserez.
-
-Pour éditer les .stl en .gcode, et paramétrer votre impression: [Cura](https://ultimaker.com/en/products/cura-software).
+Deux niveaux de fichiers sont présents ici : .scad et .stl.
 
 Pour travailler sur les .scad, modifier la conception et exporter des .stl: [OpenScad](http://www.openscad.org/).
 
