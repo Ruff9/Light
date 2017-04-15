@@ -21,6 +21,6 @@ module languette() {
         cube([7,10,4]);
      }
     translate([5,0,-1])
-      cylinder(6,2.2,2.2, $fn=resolution);
+      cylinder(6,2.4,2.4, $fn=resolution);
   }
 }

@@ -6,7 +6,12 @@ nb_languettes = 2;
 
 difference() {
   union() {
-    tube(5, ret32 + epRed, ret32 + delta*2);
+    difference() {
+      tube(5, ret32 + epRed, ret32 + delta*2);
+
+      translate([-2,ret32+1.25,-1])
+        cube([4,1,3]);
+    }
     tube(30, rit40, rit40 - epRed);
   }
   translate([0,0,-1])
