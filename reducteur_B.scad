@@ -16,7 +16,13 @@ difference() {
   }
   translate([0,0,-1])
     tube(6, rit40-epRed/2+delta, rit40-epRed-1);
+  translate([0,0,1])
+    intersection() {
+      cylinder(32,rit40-2,rit40-2);
+      cube([10,40,60], center=true);
+    }
 }
+
 
 for ( i= [0:nb_languettes] )
   rotate([0,0,i*(360/nb_languettes)]) {
