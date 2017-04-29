@@ -15,14 +15,14 @@ difference() {
 
     difference() {
       union() {
-        translate([0,0,hauteur_recepteur+6])
-          tube(hauteur_butee+2, rayon_ext_spot+4, rayon_int_culot, resolution);
+        translate([0,0,hauteur_recepteur+3])
+          tube(hauteur_butee+5, rayon_ext_spot+4, rayon_int_culot, resolution);
 
         translate([0,0,hauteur_recepteur+hauteur_butee+8])
           tube(hauteur_jonction-1, rayon_ext_culot, rayon_int_culot, resolution);
       }
-      translate([0,0,hauteur_recepteur+5])
-        cylinder(hauteur_recepteur+12, rayon_ext_embout-1, 0);
+      translate([0,0,hauteur_recepteur+3])
+        cylinder(hauteur_recepteur+15, rayon_ext_embout, 0);
     }
   }
 
