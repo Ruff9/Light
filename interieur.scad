@@ -15,7 +15,8 @@ difference(){
     rigole();
     fond_contact(r_gaine*2);
     support_piles();
-    renforts();
+    renforts_a();
+    renforts_b();
   }
   translate([0,0,-1])
     tube(h_gaine+2, r_gaine+10, r_gaine);
@@ -72,7 +73,20 @@ module support_piles() {
   }
 }
 
-module renforts() {
+module renforts_b() {
+  hsp = h_gaine + h_support;
+  largeur = 18;
+  hauteur = 7.5;
+
+  translate([-largeur/2,-(r_piles+5),0])
+    difference() {
+      cube([largeur,hauteur,h_gaine]);
+      translate([epaisseur,0,-1])
+        cube([largeur-epaisseur*2,hauteur,h_gaine+2]);
+    }
+}
+
+module renforts_a() {
   base_renfort = r_gaine - (r_piles+epaisseur);
 
   translate([r_piles+epaisseur,-epaisseur/2,0])
