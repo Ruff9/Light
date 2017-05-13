@@ -9,24 +9,27 @@ r_rigole = 5;
 r_piles = 11 + delta*2;
 h_support = 32;
 
+largeur_ouverture = 18;
+
 difference(){
   union() {
     gaine();
     rigole();
-    fond_contact(r_gaine*2);
     support_piles();
     renforts_a();
     renforts_b();
   }
   translate([0,0,-1])
     tube(h_gaine+2, r_gaine+10, r_gaine);
+  translate([-r_gaine,-5,-1])
+    cube([r_gaine*2,10,epaisseur+1]);
 }
 
 module gaine() {
   difference(){
     tube(h_gaine, r_gaine, r_gaine-epaisseur, resolution);
-    translate([-r_rigole,-(r_gaine+1),-1])
-      cube([r_rigole*2,r_rigole*2,h_gaine+2]);
+    translate([-(largeur_ouverture/2),-(r_gaine+1),-1])
+      cube([largeur_ouverture,largeur_ouverture,h_gaine+2]);
 
     translate([-r_rigole,r_gaine-3,-1])
       cube([r_rigole*2,r_rigole*2,h_gaine+2]);
@@ -48,17 +51,6 @@ module rigole() {
     cube([epaisseur,h_rigole,h_gaine]);
 }
 
-module fond_contact(largeur, epaisseur=2) {
-  difference(){
-    translate([-(largeur/2)+1,-5,0])
-      cube([largeur-2,10,epaisseur]);
-    translate([3,-2,-1])
-      cube([2,4,epaisseur+2]);
-    translate([-5,-2,-1])
-      cube([2,4,epaisseur+2]);
-  }
-}
-
 module support_piles() {
   hsp = h_gaine + h_support;
   decoupe1 = 25;
@@ -75,37 +67,23 @@ module support_piles() {
 
 module renforts_b() {
   hsp = h_gaine + h_support;
-  largeur = 18;
-  hauteur = 7.5;
+  largeur = largeur_ouverture;
+  hauteur = 9;
 
-  translate([-largeur/2,-(r_piles+5),0])
+  translate([-largeur/2,-(r_piles+6),0])
     difference() {
       cube([largeur,hauteur,h_gaine]);
-      translate([epaisseur,0,-1])
-        cube([largeur-epaisseur*2,hauteur,h_gaine+2]);
+      translate([epaisseur,-1,-1])
+        cube([largeur-epaisseur*2,hauteur+2,h_gaine+2]);
     }
 }
 
 module renforts_a() {
   base_renfort = r_gaine - (r_piles+epaisseur);
 
-  translate([r_piles+epaisseur,-epaisseur/2,0])
-    difference() {
-      cube([base_renfort,epaisseur,50]);
-      translate([base_renfort,-1,0])
-        rotate([0,-5.5,0]) {
-          cube([base_renfort,epaisseur+2,52]);
-        }
-    }
-
-  rotate([0,0,180]) {
-    translate([r_piles+epaisseur,-epaisseur/2,0])
-      difference() {
+  for ( i= [0:2] )
+    rotate([0,0,i*180]) {
+      translate([r_piles+epaisseur-1,-epaisseur/2,0])
         cube([base_renfort,epaisseur,50]);
-        translate([base_renfort,-1,0])
-          rotate([0,-5.5,0]) {
-            cube([base_renfort,epaisseur+2,52]);
-          }
-      }
   }
 }
