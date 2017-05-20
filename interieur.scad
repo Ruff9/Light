@@ -21,8 +21,8 @@ difference(){
   }
   translate([0,0,-1])
     tube(h_gaine+2, r_gaine+10, r_gaine);
-  translate([-r_gaine,-5,-1])
-    cube([r_gaine*2,10,epaisseur+1]);
+  translate([-r_gaine,-(5+delta),-1])
+    cube([r_gaine*2,10+delta*2,epaisseur+1]);
 }
 
 module gaine() {
