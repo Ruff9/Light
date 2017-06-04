@@ -2,7 +2,7 @@ include <common.scad>;
 include <variables.scad>;
 
 epRed = 4;
-nb_languettes = 2;
+nb_languettes = 3;
 
 tube(25, ret32 + epRed, ret32 + delta*2);
 
@@ -18,18 +18,8 @@ translate([0,0,21]) {
 }
 
 translate([0,0,25])
-  tube(5, rit40- epRed/2-delta, rit40 - epRed);
-
-translate([0,0,28])
-  fond_contact(rit40*2-epRed-1);
-
-module fond_contact(largeur, epaisseur=2) {
   difference(){
-    translate([-(largeur/2)+1,-5,0])
-      cube([largeur-2,10,epaisseur]);
-    translate([3,-2,-1])
-      cube([2,4,epaisseur+2]);
-    translate([-5,-2,-1])
-      cube([2,4,epaisseur+2]);
+    tube(10, rit40- epRed/2-delta, rit40 - epRed);
+    translate([-rit40,-5.5,3])
+      cube([rit40*2,11,10]);
   }
-}

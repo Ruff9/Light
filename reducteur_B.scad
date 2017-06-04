@@ -2,7 +2,7 @@ include <common.scad>;
 include <variables.scad>;
 
 epRed = 4;
-nb_languettes = 2;
+nb_languettes = 3;
 
 difference() {
   union() {
@@ -15,7 +15,7 @@ difference() {
     tube(30, rit40, rit40 - epRed);
   }
   translate([0,0,-1])
-    tube(6, rit40-epRed/2+delta, rit40-epRed-1);
+    tube(11, rit40-epRed/2+delta, rit40-epRed-1);
   translate([0,0,1])
     intersection() {
       cylinder(32,rit40-2,rit40-2);
