@@ -9,13 +9,15 @@ difference() {
     difference() {
       tube(5, ret32 + epRed, ret32 + delta*2);
 
-      translate([-2,ret32+1.25,-1])
-        cube([4,1,3]);
+      rotate([0,0,90]) {
+        translate([-2,ret32+1.25,-1])
+          cube([4,1,3]);
+      }
     }
     tube(30, rit40, rit40 - epRed);
   }
   translate([0,0,-1])
-    tube(11, rit40-epRed/2+delta, rit40-epRed-1);
+    tube(12, rit40-epRed/2+delta, rit40-epRed-1);
   translate([0,0,1])
     intersection() {
       cylinder(32,rit40-2,rit40-2);
