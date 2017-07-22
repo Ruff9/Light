@@ -11,7 +11,7 @@ translate([0,0,20])
 
 translate([0,0,21]) {
   for ( i= [0:nb_languettes] )
-    rotate([0,0,i*(360/nb_languettes)]) {
+    rotate([0,0,i*(360/nb_languettes)+(90/nb_languettes)]) {
       translate([ret32 + epRed,0,0])
         languette();
     }
