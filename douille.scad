@@ -17,6 +17,14 @@ difference() {
       rotate([0,0,i*(360/nb_baionette)]) {
         empreinte();
       }
+
+  translate([0,0,hauteur_totale-3])
+    rotate([180,0,0]) {
+      rotate_extrude(convexity = 10, $fn = resolution)
+        translate([rayon_ext_culot,0,0])
+          polygon( points=[[0,0],[3,0],[0,3]] );
+    }
+
 }
 
 module empreinte() {

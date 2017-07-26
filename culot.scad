@@ -53,3 +53,8 @@ for ( i= [0:nb_baionette] )
       cylinder((rayon_ext_culot - rayon_int_culot+5), rayon_baionette, rayon_baionette, $fn=resolution);
     }
   }
+
+translate([0,0,hauteur_recepteur+hauteur_butee+8])
+  rotate_extrude(convexity = 10, $fn = resolution)
+    translate([rayon_ext_culot,0,0])
+    polygon( points=[[0,0],[3,0],[0,3]] );
