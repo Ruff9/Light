@@ -3,7 +3,35 @@ include <variables.scad>;
 
 position_z_empreinte = hauteur_totale - profondeur_douille-3;
 
-tube(hauteur_embout, rayon_ext_embout, rayon_int_embout, resolution);
+difference() {
+  union() {
+
+    tube(hauteur_embout, rayon_ext_embout, rayon_int_embout, resolution);
+
+    for ( i= [0:nb_baionette] )
+      rotate([0,0,i*(360/nb_baionette)]) {
+
+        rotate([0,0,-46]) {
+          translate([0,rayon_ext_embout,0]) {
+            renfort();
+          }
+        }
+        rotate([0,0,-89]) {
+          translate([0,rayon_ext_embout,0]) {
+            renfort();
+          }
+        }
+    }
+  }
+
+  translate([0,0,4])
+    rotate([180,0,0]) {
+      rotate_extrude(convexity = 10, $fn = resolution)
+        translate([rayon_ext_culot,0,0])
+          polygon( points=[[5,5],[5,0],[3,5]] );
+    }
+
+}
 
 translate([0,0,hauteur_embout])
   tube(hauteur_butee, rayon_ext_embout, rayon_int_butee, resolution);
@@ -27,24 +55,10 @@ difference() {
 
 }
 
-for ( i= [0:nb_baionette] )
-  rotate([0,0,i*(360/nb_baionette)]) {
-
-    rotate([0,0,-46]) {
-      translate([0,rayon_ext_embout,0]) {
-        renfort();
-      }
-    }
-    rotate([0,0,-89]) {
-      translate([0,rayon_ext_embout,0]) {
-        renfort();
-      }
-    }
-}
 
 module renfort() {
   epaisseur = 2;
-  facteur_plat = 20;
+  facteur_plat = 25;
 
   // théorème de pythagore :D
   hauteur = sqrt(pow(facteur_plat, 2) - pow(facteur_plat-epaisseur, 2));
