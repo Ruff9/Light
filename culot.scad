@@ -16,20 +16,20 @@ difference() {
     difference() {
       union() {
         translate([0,0,hauteur_recepteur+3])
-          tube(hauteur_butee+5, rayon_ext_spot+4, rayon_int_culot, resolution);
+          tube(hauteur_butee+5, rayon_ext_spot+4, rayon_int_culot, $fn=resolution);
 
         translate([0,0,hauteur_recepteur+hauteur_butee+8])
-          tube(hauteur_jonction-1, rayon_ext_culot, rayon_int_culot, resolution);
+          tube(hauteur_jonction-1, rayon_ext_culot, rayon_int_culot, $fn=resolution);
       }
       translate([0,0,hauteur_recepteur+2])
-        cylinder(hauteur_recepteur+15, rayon_ext_embout, 0);
+        cylinder(hauteur_recepteur+15, rayon_ext_embout, 0, $fn=resolution);
     }
   }
 
   for ( i= [0:nb_baionette] )
     rotate([0,0,i*(360/nb_baionette)+180/nb_baionette]) {
       translate([0, rayon_ext_culot+18, -1]) {
-        cylinder(hauteur_recepteur*2,15,15);
+        cylinder(hauteur_recepteur*2,15,15, $fn=resolution);
 
         translate([9,-12, 0]) {
           rotate([0,0,15]) {

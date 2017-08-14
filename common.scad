@@ -1,3 +1,5 @@
+include <variables.scad>;
+
 module tube(hauteur, rayon_exterieur, rayon_interieur, resolution=resolution) {
 	difference(){
 	  cylinder(hauteur, rayon_exterieur, rayon_exterieur, $fn=resolution);

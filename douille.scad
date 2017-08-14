@@ -1,6 +1,8 @@
 include <common.scad>;
 include <variables.scad>;
 
+angle_z = 35;
+
 position_z_empreinte = hauteur_totale - profondeur_douille-3;
 
 difference() {
@@ -11,15 +13,13 @@ difference() {
     for ( i= [0:nb_baionette] )
       rotate([0,0,i*(360/nb_baionette)]) {
 
-        rotate([0,0,-46]) {
-          translate([0,rayon_ext_embout,0]) {
+        rotate([0,0,-45.36]) {
+          translate([0,rayon_ext_embout,0])
             renfort();
-          }
         }
-        rotate([0,0,-89]) {
-          translate([0,rayon_ext_embout,0]) {
+        rotate([0,0,-90]) {
+          translate([0,rayon_ext_embout,0])
             renfort();
-          }
         }
     }
   }
@@ -34,11 +34,11 @@ difference() {
 }
 
 translate([0,0,hauteur_embout])
-  tube(hauteur_butee, rayon_ext_embout, rayon_int_butee, resolution);
+  tube(hauteur_butee, rayon_ext_embout, rayon_int_butee, $fn = resolution);
 
 difference() {
   translate([0,0,hauteur_embout + hauteur_butee])
-    tube(hauteur_jonction+hauteur_ressort-3, rayon_ext_embout, rayon_int_embout, resolution);
+    tube(hauteur_jonction+hauteur_ressort-3, rayon_ext_embout, rayon_int_embout, $fn = resolution);
 
   translate([0,0,position_z_empreinte])
     for ( i= [0:nb_baionette] )
@@ -54,7 +54,6 @@ difference() {
     }
 
 }
-
 
 module renfort() {
   epaisseur = 2;
@@ -78,7 +77,7 @@ module renfort() {
   module arrondi() {
     translate([-(epaisseur/2),facteur_plat,0]) {
       rotate([0,90,0]) {
-        cylinder(epaisseur*2, facteur_plat, facteur_plat, $fn=120);
+        cylinder(epaisseur*2, facteur_plat, facteur_plat, $fn=resolution);
       }
     }
 
@@ -92,20 +91,21 @@ module renfort() {
 
 module empreinte() {
 
-  angle_z = 35;
-
   rayon_int_empreinte = rayon_int_embout - 2;
   rayon_ext_empreinte = rayon_ext_embout + 2;
   epaisseur_empreinte = rayon_ext_empreinte - rayon_int_empreinte;
 
-  translate([rayon_int_empreinte,0,0])
-    rotate([0,0,5]) {
-      cube([epaisseur_empreinte, largeur_empreinte, profondeur_douille]);
-    }
+  translate([rayon_int_empreinte,0,-1]) {
+    cube([epaisseur_empreinte, largeur_empreinte/2+1, profondeur_douille+2]);
+    translate([1,2,0])
+      rotate([0,0,12]) {
+        cube([epaisseur_empreinte+2, largeur_empreinte/2, profondeur_douille+2]);
+      }
+  }
 
   translate([rayon_int_empreinte-4.5,8.5,0])
-    rotate([0,90,angle_z-1]){
-      cylinder(10, largeur_empreinte/2, largeur_empreinte/2, $fn=60);
+    rotate([0,90,angle_z]){
+      cylinder(10, largeur_empreinte/2, largeur_empreinte/2, $fn=resolution);
     }
 
   translate([0,0,-largeur_empreinte]) {
@@ -113,27 +113,26 @@ module empreinte() {
     difference(){
       tube(largeur_empreinte, rayon_ext_empreinte, rayon_int_empreinte);
 
-      translate([-25,-29.5,-2])
+      translate([-25,-30,-2])
         cube([60,30,10]);
 
-      rotate([0,0,angle_z]){
-        translate([-30,2,-2])
-          cube([60, 30, 10]);
-      }
+      translate([0,20.9,2])
+        rotate([0,0,angle_z]){
+          cube([80, 30, 10], center=true);
+        }
 
-      translate([rayon_int_empreinte-5,9,2.5])
-        rotate([0,90,angle_z-1]){
+      translate([rayon_int_empreinte-5,9,2.4])
+        rotate([0,90,angle_z]){
           intersection(){
             tube(largeur_empreinte*2, largeur_empreinte, largeur_empreinte/2.5);
             cube([11,11,11]);
           }
         }
 
-      translate([rayon_int_empreinte-1,largeur_empreinte/2,2.5])
+      translate([rayon_int_empreinte-1,largeur_empreinte/2-0.1,3])
         rotate([0,90,0]){
           intersection(){
-
-            tube(largeur_empreinte*2, largeur_empreinte, largeur_empreinte/2.5);
+            tube(largeur_empreinte*2, largeur_empreinte, largeur_empreinte/2);
             translate([0,-11,0]) {
               cube([11,11,12]);
             }
