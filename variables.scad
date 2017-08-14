@@ -41,6 +41,7 @@ rayon_ext_spot = 26;
 
 hauteur_jonction = 30;
 
+// bug: apparement ce n'est pas la hauteur totale (3 d'écart) cf douille
 hauteur_totale = hauteur_jonction + hauteur_embout + hauteur_butee + hauteur_ressort;
 
 profondeur_douille = 12;
