@@ -97,7 +97,7 @@ module empreinte() {
 
   translate([rayon_int_empreinte,0,-1]) {
     cube([epaisseur_empreinte, largeur_empreinte/2+1, profondeur_douille+2]);
-    translate([1,2,0])
+    translate([-0.5,2,0])
       rotate([0,0,12]) {
         cube([epaisseur_empreinte+2, largeur_empreinte/2, profondeur_douille+2]);
       }

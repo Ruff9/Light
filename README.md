@@ -1,6 +1,6 @@
 # Light
 
-Projet réalisé avec OpenSCAD au FabLab du [Carrefour Numérique](http://carrefour-numerique.cite-sciences.fr/fablab/wiki/doku.php?_ga=1.200240622.1982442383.1430227391), de la Cité des sciences et de l'industrie, à la Villette, Paris.
+Projet réalisé avec [OpenScad](http://www.openscad.org/). au FabLab du [Carrefour Numérique](http://carrefour-numerique.cite-sciences.fr/fablab/wiki/doku.php?_ga=1.200240622.1982442383.1430227391), de la Cité des sciences et de l'industrie, à la Villette, Paris.
 
 ## Temps d'impression
 
@@ -16,13 +16,30 @@ douille: 6h
 culot: 5h40
 ressort: 30min
 
-Environ 32h au total pour un tonfa.
+Ces durées sont indicatives, elles correspondent aux réglages que j'ai choisi pour une Ultimaker 2. Au final chaque tonfa aura nécessité 32h d'impression.
 
-## Contenu
+## Autres pièces nécessaires
 
-Deux niveaux de fichiers sont présents ici : .scad et .stl.
+Tubes PVC plomberie:
 
-Pour travailler sur les .scad, modifier la conception et exporter des .stl: [OpenScad](http://www.openscad.org/).
+- Diamètre 40mm, longueur 115 mm
+- Diamètre 32mm, longueur 75mm
+- Diamètre 32mm, longueur 100mm
+
+Tube PVC translucide:
+
+- Diamètre 40mm, longueur 230mm
+
+Autres:
+
+- Raccord de plomberie en T
+- Spot d'ameublement + connectique
+- 165 grammes de plombs de peche
+- Une rondelle de PVC translucide, diamètre 40mm
+- cables électriques
+- étain de soudure
+- 6 piles AAA
+- 2 support de piles
 
 ## Licence
 
