@@ -2,7 +2,9 @@
 
 # Light Tonfa
 
-Projet réalisé avec [OpenScad](http://www.openscad.org/). au FabLab du [Carrefour Numérique](http://carrefour-numerique.cite-sciences.fr/fablab/wiki/doku.php?_ga=1.200240622.1982442383.1430227391), de la Cité des sciences et de l'industrie, à la Villette, Paris.
+Projet réalisé avec [OpenScad](http://www.openscad.org/). au FabLab du [Carrefour Numérique](http://carrefour-numerique.cite-sciences.fr/fablab/wiki/doku.php?_ga=1.200240622.1982442383.1430227391).
+
+Ce repo contient les fichiers originaux openscad et les fichiers .stl prêt pour être chargés dans un slicer.
 
 ## Temps d'impression
 
@@ -34,16 +36,37 @@ Tube PVC translucide:
 
 - Diamètre 40mm, longueur 230mm
 
+Electronique
+
+- Bouton poussoir
+- 2 cosses
+- 2 contacteurs
+- 2 supports pour 3 piles AAA
+- Domino
+- Cables
+
 Autres:
 
-- Raccord de plomberie en T
+- Raccord de plomberie en T diamètre 32mm
 - Spot d'ameublement + connectique
 - 165 grammes de plombs de peche
 - Une rondelle de PVC translucide, diamètre 40mm
-- cables électriques
-- étain de soudure
 - 6 piles AAA
-- 2 support de piles
+- Sur-grip de raquette de tennis
+- 24 vis de menuiserie, diamètre 4mm
+- 6 écrous + vis
+
+## Machines / outils
+
+- Imprimante 3D
+- Micro-ponçeuse (Dremel)
+- Fer à souder + étain
+- Banc de scie
+- Perçeuse + forêt de 3.5 mm
+- Visseuse
+- Découpe laser (rondelle de plexiglas)
+- Tournevis
+- 2 Clés plates de 7
 
 ## Todo
 
