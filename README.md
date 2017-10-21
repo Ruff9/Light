@@ -2,11 +2,13 @@
 
 # Light Tonfa
 
-Projet réalisé avec [OpenScad](http://www.openscad.org/). au FabLab du [Carrefour Numérique](http://carrefour-numerique.cite-sciences.fr/fablab/wiki/doku.php?_ga=1.200240622.1982442383.1430227391).
+Projet réalisé avec [OpenScad](http://www.openscad.org/) au FabLab du [Carrefour Numérique](http://carrefour-numerique.cite-sciences.fr/fablab/wiki/doku.php?_ga=1.200240622.1982442383.1430227391).
 
-Ce repo contient les fichiers originaux openscad et les fichiers .stl prêt pour être chargés dans un slicer.
+Ce repo contient les fichiers originaux openscad et les fichiers .stl prêts pour être chargés dans un slicer.
 
 ## Temps d'impression
+
+Durées indicatives, correspondantes aux réglages choisis pour une Ultimaker 2. Chaque tonfa aura nécessité 32h d'impression et 1h30 d'assemblage.
 
 - interieur: 3h
 - cale_interieur: 20min
@@ -19,8 +21,6 @@ Ce repo contient les fichiers originaux openscad et les fichiers .stl prêt pour
 - douille: 6h
 - culot: 5h40
 - ressort: 30min
-
-Ces durées sont indicatives, elles correspondent aux réglages que j'ai choisi pour une Ultimaker 2. Au final chaque tonfa aura nécessité 32h d'impression.
 
 ![etalage](https://raw.githubusercontent.com/Ruff9/Light/master/images/etalage.JPG)
 
@@ -43,18 +43,19 @@ Electronique
 - 2 contacteurs
 - 2 supports pour 3 piles AAA
 - Domino
-- Cables
+- Câbles
 
 Autres:
 
 - Raccord de plomberie en T diamètre 32mm
 - Spot d'ameublement + connectique
-- 165 grammes de plombs de peche
-- Une rondelle de PVC translucide, diamètre 40mm
+- Rondelle de PVC translucide, diamètre 40mm
 - 6 piles AAA
+- 165 grammes de plombs de peche
 - Sur-grip de raquette de tennis
 - 24 vis de menuiserie, diamètre 4mm
 - 6 écrous + vis
+- Bombe de peinture noire
 
 ## Machines / outils
 
