@@ -11,6 +11,9 @@ hauteur_atome = 1;
 largeur_rondelle = rayon_int_embout - rayon_int_butee;
 rayon_int = rayon_int_embout - largeur_rondelle - 3*delta;
 
+
+tube(2, rayon_int+largeur_rondelle, rayon_int);
+
 difference(){
 	for ( i= [0:nombre_bras])
 		rotate([0,0,i*angle_bras]) {
@@ -19,8 +22,6 @@ difference(){
 	tube(hauteur+2, rayon_int+largeur_rondelle+2, rayon_int+largeur_rondelle);
 }
 
-translate([0,0,hauteur-1])
-	tube(2, rayon_int+largeur_rondelle, rayon_int);
 
 // variables qui influent sur la raideur:
 // nb_atome, pas_rotation
